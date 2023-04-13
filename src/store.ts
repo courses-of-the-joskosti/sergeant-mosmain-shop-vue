@@ -2,7 +2,7 @@ import type { Store } from 'vuex'
 import { createStore } from 'vuex'
 import type { RootState } from './types'
 
-export default createStore<RootState>({
+export const store = createStore<RootState>({
   state: {
     // определите состояния магазина здесь
   },
