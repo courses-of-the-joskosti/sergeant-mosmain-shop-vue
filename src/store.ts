@@ -12,6 +12,9 @@ export default createStore<RootState>({
   actions: {
     // определите действия магазина здесь
   },
+  getters: {
+
+  },
   modules: {
     // определите подмодули здесь
   }
