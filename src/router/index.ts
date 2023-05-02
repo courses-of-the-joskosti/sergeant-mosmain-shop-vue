@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/HomeView.vue'
+import Home from '@/views/HomeView.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -10,11 +10,11 @@ export default createRouter({
     },
     {
       path: '/catalog',
-      component: () => import('../views/CatalogView.vue')
+      component: () => import('@/views/CatalogView.vue')
     },
     {
       path: '/:catchAll(.*)',
-      component: () => import('../views/NotFoundView.vue')
+      component: () => import('@/views/NotFoundView.vue')
     }
   ]
 })
