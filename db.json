@@ -1,0 +1,439 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "johndoe",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johndoe@example.com",
+      "phone": "123-456-7890"
+    },
+    {
+      "id": 2,
+      "username": "janedoe",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "janedoe@example.com",
+      "phone": "555-555-5555"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Керамические массы",
+      "base_name": "ceramic-masses",
+      "image_url": ""
+    },
+    {
+      "id": 2,
+      "name": "Печи для обжига",
+      "base_name": "kilns",
+      "image_url": ""
+    },
+    {
+      "id": 3,
+      "name": "Оборудование",
+      "base_name": "equipment",
+      "image_url": ""
+    },
+    {
+      "id": 4,
+      "name": "Инструменты для керамики",
+      "base_name": "tools-for-ceramics",
+      "image_url": ""
+    },
+    {
+      "id": 5,
+      "name": "Керамические глазури",
+      "base_name": "ceramic-glazes",
+      "image_url": ""
+    },
+    {
+      "id": 6,
+      "name": "Краски обжиговые",
+      "base_name": "burning-paints",
+      "image_url": ""
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category_id": 1,
+      "name": "P27 Фарфор, белый в порошке Т1260-1280С",
+      "description": "Eiusmod non ut enim do proident dolor.",
+      "brand": "Montesa",
+      "manufacturer": "Испания",
+      "image_url": "https://breezecolor.ru/upload/pictures/2209091009597223.jpg",
+      "price": 300
+    },
+    {
+      "id": 2,
+      "category_id": 1,
+      "name": "P69 Фарфор, белый в порошке Т1260-1300С TRANSLUCIDA",
+      "description": "Laboris do nostrud irure quis consectetur ea culpa do quis aute pariatur ea ut.",
+      "brand": "Montesa",
+      "manufacturer": "Испания",
+      "image_url": "https://breezecolor.ru/upload/pictures/2209091013133105.jpg",
+      "price": 385
+    },
+    {
+      "id": 3,
+      "category_id": 1,
+      "name": "P83 Фарфор, белый в порошке Т1260-1300С",
+      "description": "Deserunt eu sit ipsum quis ipsum.",
+      "brand": "Montesa",
+      "manufacturer": "Испания",
+      "image_url": "https://breezecolor.ru/upload/pictures/2209081657142776.jpg",
+      "price": 315
+    },
+    {
+      "id": 4,
+      "category_id": 1,
+      "name": "Керамическая масса \"Восточная\" 1230~1250℃ (mlp005)",
+      "description": "Culpa culpa deserunt voluptate ipsum irure ex excepteur aliqua excepteur.",
+      "brand": "",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2212121520522816.jpg",
+      "price": 470
+    },
+    {
+      "id": 5,
+      "category_id": 1,
+      "name": "Керамическая масса \"Формовочная\" 1250~1280℃ (mlp006)",
+      "description": "Magna culpa dolor deserunt pariatur irure elit Lorem est.",
+      "brand": "",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2212121553389874.jpg",
+      "price": 615
+    },
+    {
+      "id": 6,
+      "category_id": 1,
+      "name": "Белый фарфор \"Шелк\" 1250-1280С (mlp001)",
+      "description": "Tempor id magna minim consectetur excepteur et nulla.",
+      "brand": "",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2212091206519311.jpg",
+      "price": 565
+    },
+    {
+      "id": 7,
+      "category_id": 2,
+      "name": "Печь для обжига AMACO Ex-257-Sf вертикальная 161 литров 1300С 380В",
+      "description": "Exercitation ea in labore dolore laboris.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2103041534152729_big.jpg",
+      "price": 353454
+    },
+    {
+      "id": 8,
+      "category_id": 2,
+      "name": "Печь для обжига вертикальная 47 литров 1320С (220В)+ST215C",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "Россия",
+      "image_url": "https://breezecolor.ru/upload/pictures/2211161433392143_big.jpg",
+      "price": 156511
+    },
+    {
+      "id": 9,
+      "category_id": 2,
+      "name": "Печь для обжига Раку R 100S (комплектация стандарт)",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "Россия",
+      "image_url": "https://breezecolor.ru/upload/pictures/2211161433392143_big.jpg",
+      "price": 57070
+    },
+    {
+      "id": 10,
+      "category_id": 2,
+      "name": "Спираль для печи EX-226Sf 240V Верх/Низ",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2109281059054910_big.jpg",
+      "price": 8823
+    },
+    {
+      "id": 11,
+      "category_id": 2,
+      "name": "Спираль для печи EX-226Sf 240V Центр",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2109281056544223_big.jpg",
+      "price": 8823
+    },
+    {
+      "id": 12,
+      "category_id": 2,
+      "name": "Спираль для печи EX-257 240V Верх/Низ",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2211161433392143_big.jpg",
+      "price": 11743
+    },
+    {
+      "id": 13,
+      "category_id": 3,
+      "name": "Гончарный круг Model CXC - Brent Pottery Wheel 220V",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2109281242384686_big.jpg",
+      "price": 312211
+    },
+    {
+      "id": 14,
+      "category_id": 3,
+      "name": "Гончарный круг Model EX - Brent Pottery Wheel 110V",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2109281210121234_big.jpg",
+      "price": 326254
+    },
+    {
+      "id": 15,
+      "category_id": 3,
+      "name": "Раскаточный стол для глины SR14 Amaco, США (с ножками)",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2102241617484012_big.jpg",
+      "price": 183380
+    },
+    {
+      "id": 16,
+      "category_id": 3,
+      "name": "Раскаточный стол для глины SRC Amaco, США (с ножками)",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2102201250533603_big.jpg",
+      "price": 107227
+    },
+    {
+      "id": 17,
+      "category_id": 3,
+      "name": "Стол раскаточный Amaco Mini, USA 787*660мм",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2011051551299779_big.jpg",
+      "price": 78783
+    },
+    {
+      "id": 18,
+      "category_id": 3,
+      "name": "Турнетка 30см/20см алюминий (двусторонняя)",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Amaco",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2108131447396574_big.jpg",
+      "price": 4327
+    },
+    {
+      "id": 19,
+      "category_id": 4,
+      "name": "Инструмент для шлифовки (терка) 140мм",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "Германия",
+      "image_url": "https://breezecolor.ru/upload/pictures/2210131045476105_big.png",
+      "price": 450
+    },
+    {
+      "id": 20,
+      "category_id": 4,
+      "name": "Набор двусторонних петель 7 шт. (ок 22см)",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "Китай",
+      "image_url": "https://breezecolor.ru/upload/pictures/2005091056159361_big.jpg",
+      "price": 630
+    },
+    {
+      "id": 21,
+      "category_id": 4,
+      "name": "Шило/зубья профессиональный инструмент X10136 XIEM Tools",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Xiem Tools",
+      "manufacturer": "США",
+      "image_url": "https://breezecolor.ru/upload/pictures/2106031621288419_big.jpg",
+      "price": 1262
+    },
+    {
+      "id": 22,
+      "category_id": 4,
+      "name": "5 лезвий для ножа для моделирования",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "Китай",
+      "image_url": "https://breezecolor.ru/upload/pictures/2005091701223959_big.jpg",
+      "price": 80
+    },
+    {
+      "id": 23,
+      "category_id": 4,
+      "name": "Ареометр АЭ-1 1200-1400",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "Россия",
+      "image_url": "https://breezecolor.ru/upload/pictures/2010141012022075_big.jpg",
+      "price": 912
+    },
+    {
+      "id": 24,
+      "category_id": 4,
+      "name": "Инструмент для шлифовки (терка) 250мм",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "Германия",
+      "image_url": "https://breezecolor.ru/upload/pictures/2210131046327782_big.png",
+      "price": 598
+    },
+    {
+      "id": 25,
+      "category_id": 5,
+      "name": "Глазурь EMB 02/019 Белая 980-1000C БЕЗ СВИНЦА",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "",
+      "image_url": "https://breezecolor.ru/upload/pictures/2212211001347520_big.jpg",
+      "price": 90
+    },
+    {
+      "id": 26,
+      "category_id": 5,
+      "name": "Глазурь EMB 02/028 Белая 1100-1130C БЕЗ СВИНЦА",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "",
+      "image_url": "https://breezecolor.ru/upload/pictures/2302221438522965_big.jpg",
+      "price": 107
+    },
+    {
+      "id": 27,
+      "category_id": 5,
+      "name": "Глазурь EMB 02/029 Белая 1250-1280C БЕЗ СВИНЦА",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "",
+      "image_url": "https://breezecolor.ru/upload/pictures/2302221444105034_big.jpg",
+      "price": 97
+    },
+    {
+      "id": 28,
+      "category_id": 5,
+      "name": "Глазурь EMT 01/001 Прозрачная 980-1000C БЕЗ СВИНЦА",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "",
+      "image_url": "https://breezecolor.ru/upload/pictures/2212211007533133_big.jpg",
+      "price": 76
+    },
+    {
+      "id": 29,
+      "category_id": 5,
+      "name": "Глазурь EMT 01/026 Прозрачная 1100-1130C БЕЗ СВИНЦА",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "",
+      "image_url": "https://breezecolor.ru/upload/pictures/2302221422526992_big.jpg",
+      "price": 75
+    },
+    {
+      "id": 30,
+      "category_id": 5,
+      "name": "Глазурь EMT 01/027 Прозрачная 1250-1280C БЕЗ СВИНЦА",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "",
+      "manufacturer": "",
+      "image_url": "https://breezecolor.ru/upload/pictures/2302221431082474_big.jpg",
+      "price": 82
+    },
+    {
+      "id": 31,
+      "category_id": 6,
+      "name": "(AVIA) Краска надглазурная 3493 Зеленая холодная",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Shinceramic Co. Ltd.",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2005061436283049_big.png",
+      "price": 419
+    },
+    {
+      "id": 32,
+      "category_id": 6,
+      "name": "(AVIA) Краска надглазурная 3670 Красно-коричневая",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Shinceramic Co. Ltd.",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2005061435267187_big.png",
+      "price": 442
+    },
+    {
+      "id": 33,
+      "category_id": 6,
+      "name": "(AVIA) Краска надглазурная 3783 Серая",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Shinceramic Co. Ltd.",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2011171433305125_big.jpg",
+      "price": 550
+    },
+    {
+      "id": 34,
+      "category_id": 6,
+      "name": "Краска надглазурная 0360 (SF01) Маджента (полноцвет)",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Shinceramic Co. Ltd.",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2005061430597033_big.png",
+      "price": 9000
+    },
+    {
+      "id": 35,
+      "category_id": 6,
+      "name": "Краска надглазурная 23101A Темно-красная",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Shinceramic Co. Ltd.",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2005061431078906_big.png",
+      "price": 372
+    },
+    {
+      "id": 36,
+      "category_id": 6,
+      "name": "Краска надглазурная 23102 Красная",
+      "description": "Magna consequat ad officia cillum id minim est nostrud dolore.",
+      "brand": "Shinceramic Co. Ltd.",
+      "manufacturer": "Корея",
+      "image_url": "https://breezecolor.ru/upload/pictures/2005061525373224_big.png",
+      "price": 441
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "products": [
+        {
+          "product_id": 1,
+          "price": 999.99,
+          "quantity": 4
+        },
+        {
+          "product_id": 2,
+          "price": 199.99,
+          "quantity": 2
+        }
+      ],
+      "total_price": 3399.95
+    }
+  ]
+}
