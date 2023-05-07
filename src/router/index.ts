@@ -9,6 +9,12 @@ export default createRouter({
       component: Home
     },
     {
+      path: '/product/:id',
+      name: 'ProductView',
+      component: () => import('@/views/ProductView.vue'),
+      props: (route) => ({ id: Number(route.params.id) })
+    },
+    {
       path: '/catalog',
       component: () => import('@/views/CatalogView.vue')
     },
