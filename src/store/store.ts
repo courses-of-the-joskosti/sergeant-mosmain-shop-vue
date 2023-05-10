@@ -1,21 +1,29 @@
-// import type { Store } from 'vuex'
 import { createStore } from 'vuex'
-import type { RootState } from '../axios/types'
+import type { Product } from '@/axios/types'
 
-export const store = createStore<RootState>({
+interface State {
+  cart: Product[]
+}
+
+export default createStore<State>({
   state: {
-    // определите состояния магазина здесь
+    cart: []
   },
   mutations: {
-    // определите мутации магазина здесь
+    addToCart(state, product: Product) {
+      const index = state.cart.findIndex((p) => p.id === product.id)
+      if (index !== -1) {
+        state.cart[index].quantity += 1
+        state.cart[index].total_price = state.cart[index].quantity * state.cart[index].price
+      } else {
+        const item = { ...product, quantity: 1, total_price: product.price }
+        state.cart.push(item)
+      }
+    }
   },
   actions: {
-    // определите действия магазина здесь
-  },
-  getters: {
-
-  },
-  modules: {
-    // определите подмодули здесь
+    addToCart({ commit }, product: Product) {
+      commit('addToCart', product)
+    }
   }
 })
