@@ -46,3 +46,9 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### Run json-server 
+
+```sh
+json-server -w -p 1337 db.json
+```
