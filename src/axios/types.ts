@@ -26,6 +26,8 @@ export interface Product {
   manufacturer: string
   image_url: string
   price: number
+  quantity: number
+  total_price: number
 }
 
 export interface Carts {
