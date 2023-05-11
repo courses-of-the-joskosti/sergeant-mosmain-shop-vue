@@ -30,7 +30,7 @@ export default defineComponent({
           this.error = true
         })
     },
-    formatNumber(num: number) {
+    formatNumber(num: Number) {
       return num.toLocaleString('ru-RU')
     },
     linkToProduct(id: Number) {
