@@ -31,6 +31,12 @@ export default defineComponent({
     toggleSelection() {
       // Сохраняем состояние выбранных товаров в локальном хранилище
       localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
+
+      if (this.selectedProducts.length === this.cart.length) {
+        this.selectAllChecked = true
+      } else {
+        this.selectAllChecked = false
+      }
     },
     toggleSelectAll() {
       if (this.selectAllChecked) {
@@ -40,6 +46,7 @@ export default defineComponent({
         // Снимаем выделение со всех товаров
         this.selectedProducts = []
       }
+
       // Сохраняем состояние выбранных товаров в локальном хранилище
       localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
     }
@@ -103,8 +110,7 @@ export default defineComponent({
                   <p>{{ product.name }}</p>
 
                   <v-card-subtitle class="pa-0">
-                    Страна: {{ product.manufacturer }}
-                    ID: {{ product.id }}
+                    Страна: {{ product.manufacturer }} ID: {{ product.id }}
                   </v-card-subtitle>
                 </v-card-text>
 
