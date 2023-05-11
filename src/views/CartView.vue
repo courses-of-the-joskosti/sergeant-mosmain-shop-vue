@@ -50,6 +50,7 @@ export default defineComponent({
       if (this.selectAllChecked) {
         // Выбираем все товары
         this.selectedProducts = this.cart.map((product) => product.id)
+        this.hideDeleteButton = false
       } else {
         // Снимаем выделение со всех товаров
         this.selectedProducts = []
@@ -94,9 +95,7 @@ export default defineComponent({
                   v-model="selectAllChecked"
                   @change="toggleSelectAll"
                 ></v-checkbox-btn>
-                <v-btn color="red" @click="deleteSelection" v-if="!hideDeleteButton"
-                  >Удалить выбранные</v-btn
-                >
+                <v-btn color="red" @click="deleteSelection" v-if="!hideDeleteButton">Удалить выбранные</v-btn>
               </div>
               <v-card
                 v-for="product in cart"
