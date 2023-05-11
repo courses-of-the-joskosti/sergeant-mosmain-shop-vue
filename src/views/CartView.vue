@@ -7,7 +7,8 @@ export default defineComponent({
   name: 'CartView',
   data() {
     return {
-      selectedProducts: [] as number[]
+      selectedProducts: [] as number[],
+      selectAllChecked: false
     }
   },
   computed: {
@@ -25,15 +26,19 @@ export default defineComponent({
       })
       this.selectedProducts = []
       localStorage.removeItem('selectedProducts') // Удаляем сохраненное значение из локального хранилища
+      this.selectAllChecked = false // Снимаем выделение с кнопки "Выбрать все"
     },
-    toggleSelection(productId: number) {
-      const index = this.selectedProducts.indexOf(productId)
-      if (index === -1) {
-        // Товар не выбран, добавляем его в массив выбранных товаров
-        this.selectedProducts.push(productId)
+    toggleSelection() {
+      // Сохраняем состояние выбранных товаров в локальном хранилище
+      localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
+    },
+    toggleSelectAll() {
+      if (this.selectAllChecked) {
+        // Выбираем все товары
+        this.selectedProducts = this.cart.map((product) => product.id)
       } else {
-        // Товар уже выбран, удаляем его из массива выбранных товаров
-        this.selectedProducts.splice(index, 1)
+        // Снимаем выделение со всех товаров
+        this.selectedProducts = []
       }
       // Сохраняем состояние выбранных товаров в локальном хранилище
       localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
@@ -43,6 +48,11 @@ export default defineComponent({
     const savedSelectedProducts = localStorage.getItem('selectedProducts')
     if (savedSelectedProducts) {
       this.selectedProducts = JSON.parse(savedSelectedProducts)
+    }
+
+    // Установка состояния чекбокса "Выбрать все"
+    if (this.selectedProducts.length === this.cart.length) {
+      this.selectAllChecked = true
     }
   }
 })
@@ -62,7 +72,15 @@ export default defineComponent({
         <v-container fluid>
           <v-row>
             <v-card>
-              <v-btn color="red" @click="deleteSelection">Удалить выбранные</v-btn>
+              <div class="d-flex">
+                <v-checkbox-btn
+                  color="red"
+                  label="Выбрать все"
+                  v-model="selectAllChecked"
+                  @change="toggleSelectAll"
+                ></v-checkbox-btn>
+                <v-btn color="red" @click="deleteSelection">Удалить выбранные</v-btn>
+              </div>
               <v-card
                 v-for="product in cart"
                 :key="product.id"
@@ -72,8 +90,8 @@ export default defineComponent({
               >
                 <v-card-actions>
                   <v-checkbox
-                    v-model="selectedProducts"
                     @change="toggleSelection"
+                    v-model="selectedProducts"
                     :value="product.id"
                   ></v-checkbox>
                 </v-card-actions>
@@ -86,6 +104,7 @@ export default defineComponent({
 
                   <v-card-subtitle class="pa-0">
                     Страна: {{ product.manufacturer }}
+                    ID: {{ product.id }}
                   </v-card-subtitle>
                 </v-card-text>
 
