@@ -1,8 +1,10 @@
 # sergeant-mosmain-shop-vue
 
-the time i spent in the project [![wakatime](https://wakatime.com/badge/user/bb404e48-d8d0-4eea-a0d3-bb8b21846f17/project/50facfbf-06e9-4241-ac31-fbc0cdf44084.svg)](https://wakatime.com/badge/user/bb404e48-d8d0-4eea-a0d3-bb8b21846f17/project/50facfbf-06e9-4241-ac31-fbc0cdf44084)
-
 This template should help get you started developing with Vue 3 in Vite.
+
+## The time i spent in the project
+
+[![wakatime](https://wakatime.com/badge/user/bb404e48-d8d0-4eea-a0d3-bb8b21846f17/project/50facfbf-06e9-4241-ac31-fbc0cdf44084.svg)](https://wakatime.com/badge/user/bb404e48-d8d0-4eea-a0d3-bb8b21846f17/project/50facfbf-06e9-4241-ac31-fbc0cdf44084)
 
 ## Recommended IDE Setup
 
