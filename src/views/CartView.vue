@@ -19,24 +19,30 @@ export default defineComponent({
   methods: {
     ...mapActions(['removeFromCart']),
     deleteSelection() {
-      // Удаляем выбранные продукты из хранилища Vuex
-      this.selectedProducts.forEach((productId) => {
-        this.removeFromCart(productId)
+      const selectedIds = [...this.selectedProducts]
+      selectedIds.forEach((id) => {
+        this.removeFromCart(id)
       })
-
-      // Очищаем массив выбранных идентификаторов
       this.selectedProducts = []
+      localStorage.removeItem('selectedProducts') // Удаляем сохраненное значение из локального хранилища
     },
     toggleSelection(productId: number) {
-      if (this.selectedProducts.includes(productId)) {
-        // Если товар уже выбран, удаляем его из массива
-        const index = this.selectedProducts.indexOf(productId)
-        this.selectedProducts.splice(index, 1)
-      } else {
-        // Если товар еще не выбран, добавляем его в массив
+      const index = this.selectedProducts.indexOf(productId)
+      if (index === -1) {
+        // Товар не выбран, добавляем его в массив выбранных товаров
         this.selectedProducts.push(productId)
+      } else {
+        // Товар уже выбран, удаляем его из массива выбранных товаров
+        this.selectedProducts.splice(index, 1)
       }
-      console.log(this.selectedProducts)
+      // Сохраняем состояние выбранных товаров в локальном хранилище
+      localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
+    }
+  },
+  mounted() {
+    const savedSelectedProducts = localStorage.getItem('selectedProducts')
+    if (savedSelectedProducts) {
+      this.selectedProducts = JSON.parse(savedSelectedProducts)
     }
   }
 })
@@ -65,10 +71,11 @@ export default defineComponent({
                 class="d-flex flex-no-wrap justify-space-between pa-2 ma-2"
               >
                 <v-card-actions>
-                  <v-checkbox-btn
-                    @change="toggleSelection(product.id)"
+                  <v-checkbox
+                    v-model="selectedProducts"
+                    @change="toggleSelection"
                     :value="product.id"
-                  ></v-checkbox-btn>
+                  ></v-checkbox>
                 </v-card-actions>
                 <v-avatar class="ma-3" size="150" rounded="0">
                   <v-img :aspect-ratio="1 / 1" :src="product.image_url"></v-img>
