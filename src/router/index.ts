@@ -17,6 +17,10 @@ const routes = [
     component: () => import('@/views/CatalogView.vue')
   },
   {
+    path: '/cart',
+    component: () => import('@/views/CartView.vue')
+  },
+  {
     path: '/:catchAll(.*)',
     component: () => import('@/views/NotFoundView.vue')
   }

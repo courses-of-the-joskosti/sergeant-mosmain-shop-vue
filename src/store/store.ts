@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import type { Product } from '@/axios/types'
-import Cookies from 'js-cookie'
+const storage = window.localStorage;
 
 interface State {
   cart: Product[]
@@ -15,29 +15,40 @@ export default createStore<State>({
       const index = state.cart.findIndex((p) => p.id === product.id)
       if (index !== -1) {
         state.cart[index].quantity += 1
-        state.cart[index].total_price =
-          state.cart[index].quantity * state.cart[index].price
+        state.cart[index].total_price = state.cart[index].quantity * state.cart[index].price
       } else {
         const item = { ...product, quantity: 1, total_price: product.price }
         state.cart.push(item)
       }
-      // Сохраняем состояние в cookies после каждого изменения
-      Cookies.set('cart', JSON.stringify(state.cart))
+      // Сохраняем состояние после каждого изменения
+      storage.setItem('cart', JSON.stringify(state.cart));
     },
-    setCartFromCookies(state) {
-      // Чтение состояния из cookies при инициализации хранилища
-      const cart = Cookies.get('cart')
+    setCartFromStorage(state) {
+      // Чтение состояния из localStorage при инициализации хранилища
+      const cart = storage.getItem('cart');
       if (cart) {
-        state.cart = JSON.parse(cart)
+        state.cart = JSON.parse(cart);
       }
+    },
+
+    removeFromCart(state, productId: number) {
+      const index = state.cart.findIndex((p) => p.id === productId)
+      if (index !== -1) {
+        state.cart.splice(index, 1)
+      }
+      // Обновляем состояние в localStorage после удаления товара
+      storage.setItem('cart', JSON.stringify(state.cart));
     }
   },
   actions: {
     addToCart({ commit }, product: Product) {
-      commit('addToCart', product)
+      commit('addToCart', product);
+    },
+    removeFromCart({ commit }, productId: Number) {
+      commit('removeFromCart', productId);
     }
   },
   // Вызовите мутацию setCartFromCookies после инициализации хранилища
   // чтобы восстановить состояние из cookies
-  plugins: [(store) => store.commit('setCartFromCookies')]
+  plugins: [(store) => store.commit('setCartFromStorage')]
 })
