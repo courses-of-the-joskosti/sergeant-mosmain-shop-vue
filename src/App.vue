@@ -45,7 +45,10 @@ export default {
           {{ item.text }}
         </v-btn>
         <v-btn class="mx-2 h-100" rounded="0" size="large" to="/cart">
-          <v-badge v-if="cartItemsCount !== 0" :content="cartItemsCount" color="error" class="mr-3">
+          <v-badge v-if="cartItemsCount !== 0 && cartItemsCount < 10" :content="cartItemsCount" color="error" class="mr-3">
+            <v-icon start icon="mdi-cart"></v-icon>
+          </v-badge>
+          <v-badge v-else-if="cartItemsCount > 9" :content="cartItemsCount" color="error" class="mr-5">
             <v-icon start icon="mdi-cart"></v-icon>
           </v-badge>
           <v-icon v-else start icon="mdi-cart"></v-icon>
