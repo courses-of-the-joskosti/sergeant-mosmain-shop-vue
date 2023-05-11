@@ -54,6 +54,7 @@ export default defineComponent({
       } else {
         // Снимаем выделение со всех товаров
         this.selectedProducts = []
+        this.hideDeleteButton = true
       }
 
       // Сохраняем состояние выбранных товаров в локальном хранилище
