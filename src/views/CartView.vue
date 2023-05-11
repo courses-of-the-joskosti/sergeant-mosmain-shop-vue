@@ -8,7 +8,8 @@ export default defineComponent({
   data() {
     return {
       selectedProducts: [] as number[],
-      selectAllChecked: false
+      selectAllChecked: false,
+      hideDeleteButton: true as Boolean
     }
   },
   computed: {
@@ -36,6 +37,13 @@ export default defineComponent({
         this.selectAllChecked = true
       } else {
         this.selectAllChecked = false
+      }
+
+      // Проверяем количество выбранных товаров и скрываем кнопку "Удалить выбранное", если ничего не выбрано
+      if (this.selectedProducts.length === 0) {
+        this.hideDeleteButton = true
+      } else {
+        this.hideDeleteButton = false
       }
     },
     toggleSelectAll() {
@@ -86,7 +94,9 @@ export default defineComponent({
                   v-model="selectAllChecked"
                   @change="toggleSelectAll"
                 ></v-checkbox-btn>
-                <v-btn color="red" @click="deleteSelection">Удалить выбранные</v-btn>
+                <v-btn color="red" @click="deleteSelection" v-if="!hideDeleteButton"
+                  >Удалить выбранные</v-btn
+                >
               </div>
               <v-card
                 v-for="product in cart"
