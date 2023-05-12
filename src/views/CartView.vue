@@ -67,7 +67,20 @@ export default defineComponent({
         this.selectedProducts = []
         this.hideDeleteButton = true
       }
+      
+      // Сохраняем состояние выбранных товаров в локальном хранилище
+      localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
+    },
+    removeProduct(productId: number, isSelected: boolean) {
+      if (isSelected) {
+        // Удаление выбранного товара из selectedProducts
+        const index = this.selectedProducts.indexOf(productId)
+        if (index !== -1) {
+          this.selectedProducts.splice(index, 1)
+        }
+      }
 
+      this.removeFromCart(productId)
       // Сохраняем состояние выбранных товаров в локальном хранилище
       localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
     }
@@ -148,7 +161,7 @@ export default defineComponent({
                   class="ms-2"
                   variant="outlined"
                   size="small"
-                  @click="removeFromCart(product.id)"
+                  @click="removeProduct(product.id, selectedProducts.includes(product.id))"
                 >
                   Удалить
                 </v-btn>
@@ -159,7 +172,11 @@ export default defineComponent({
       </v-col>
 
       <v-col cols="4" sm="12" lg="4">
-        <v-card><span class="fw-bold">Сумма выбранных товаров: {{ formatNumber(getTotalPrice) }}</span></v-card>
+        <v-card
+          ><span class="fw-bold"
+            >Сумма выбранных товаров: {{ formatNumber(getTotalPrice) }}</span
+          ></v-card
+        >
       </v-col>
     </v-row>
   </v-container>
