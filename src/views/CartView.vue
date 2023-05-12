@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue'
 import type { Product } from '@/axios/types'
 import { mapActions, useStore } from 'vuex'
+import { formatNumber } from '@/utils'
 
 export default defineComponent({
   name: 'CartView',

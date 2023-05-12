@@ -4,6 +4,7 @@ import axios from '@/axios/axiosInstance'
 import { getProducts } from '@/axios/routes'
 import type { Product } from '@/axios/types'
 import { mapActions } from 'vuex'
+import { formatNumber } from '@/utils'
 
 export default defineComponent({
   data() {
@@ -30,13 +31,15 @@ export default defineComponent({
           this.error = true
         })
     },
-    formatNumber(num: Number) {
-      return num.toLocaleString('ru-RU')
-    },
     linkToProduct(id: Number) {
       return `/product/${id}`
     },
     ...mapActions(['addToCart'])
+  },
+  computed: {
+    formatNumber(): (num: number) => string {
+      return formatNumber
+    }
   }
 })
 </script>
@@ -65,12 +68,7 @@ export default defineComponent({
               <p class="text-subtitle-1 font-weight-bold pr-2">
                 {{ formatNumber(product.price) }} ₽
               </p>
-              <v-btn
-                variant="flat"
-                color="grey-darken-4"
-                border
-                @click="addToCart(product)"
-              >
+              <v-btn variant="flat" color="grey-darken-4" border @click="addToCart(product)">
                 Add to cart
               </v-btn>
             </v-card-actions>
