@@ -9,7 +9,7 @@ export default defineComponent({
   data() {
     return {
       selectedProducts: [] as number[],
-      selectAllChecked: false,
+      selectAllChecked: false as Boolean,
       hideDeleteButton: true as Boolean
     }
   },
@@ -17,6 +17,16 @@ export default defineComponent({
     cart(): Product[] {
       const store = useStore()
       return store.state.cart
+    },
+    getTotalPrice() {
+      const selectedProducts = this.cart.filter((product) =>
+        this.selectedProducts.includes(product.id)
+      )
+      const totalPrice = selectedProducts.reduce((sum, product) => sum + product.total_price, 0)
+      return totalPrice
+    },
+    formatNumber(): (num: number) => string {
+      return formatNumber
     }
   },
   methods: {
@@ -92,12 +102,19 @@ export default defineComponent({
             <v-card>
               <div class="d-flex">
                 <v-checkbox-btn
+                  class="mt-2 ml-2 w-auto"
                   color="red"
                   label="Выбрать все"
                   v-model="selectAllChecked"
                   @change="toggleSelectAll"
                 ></v-checkbox-btn>
-                <v-btn color="red" @click="deleteSelection" v-if="!hideDeleteButton">Удалить выбранные</v-btn>
+                <v-btn
+                  color="red"
+                  class="mt-2 mx-2"
+                  @click="deleteSelection"
+                  v-if="!hideDeleteButton"
+                  >Удалить выбранные</v-btn
+                >
               </div>
               <v-card
                 v-for="product in cart"
@@ -107,11 +124,11 @@ export default defineComponent({
                 class="d-flex flex-no-wrap justify-space-between pa-2 ma-2"
               >
                 <v-card-actions>
-                  <v-checkbox
+                  <v-checkbox-btn
                     @change="toggleSelection"
                     v-model="selectedProducts"
                     :value="product.id"
-                  ></v-checkbox>
+                  ></v-checkbox-btn>
                 </v-card-actions>
                 <v-avatar class="ma-3" size="150" rounded="0">
                   <v-img :aspect-ratio="1 / 1" :src="product.image_url"></v-img>
@@ -125,7 +142,7 @@ export default defineComponent({
                   </v-card-subtitle>
                 </v-card-text>
 
-                <span>{{ product.price }}</span>
+                <span>{{ formatNumber(product.price) }}</span>
 
                 <v-btn
                   class="ms-2"
@@ -142,7 +159,7 @@ export default defineComponent({
       </v-col>
 
       <v-col cols="4" sm="12" lg="4">
-        <v-card>Make an order block</v-card>
+        <v-card><span class="fw-bold">Сумма выбранных товаров: {{ formatNumber(getTotalPrice) }}</span></v-card>
       </v-col>
     </v-row>
   </v-container>
