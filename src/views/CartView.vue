@@ -67,7 +67,7 @@ export default defineComponent({
         this.selectedProducts = []
         this.hideDeleteButton = true
       }
-      
+
       // Сохраняем состояние выбранных товаров в локальном хранилище
       localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts))
     },
@@ -89,6 +89,10 @@ export default defineComponent({
     const savedSelectedProducts = localStorage.getItem('selectedProducts')
     if (savedSelectedProducts) {
       this.selectedProducts = JSON.parse(savedSelectedProducts)
+    }
+
+    // Показать кнопку удалить выбранное, если выбран >0 чекбоксов
+    if (this.selectedProducts.length > 0) {
       this.hideDeleteButton = false
     }
 
