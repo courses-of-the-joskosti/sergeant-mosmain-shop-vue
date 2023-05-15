@@ -89,6 +89,7 @@ export default defineComponent({
     const savedSelectedProducts = localStorage.getItem('selectedProducts')
     if (savedSelectedProducts) {
       this.selectedProducts = JSON.parse(savedSelectedProducts)
+      this.hideDeleteButton = false
     }
 
     // Установка состояния чекбокса "Выбрать все"
