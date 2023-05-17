@@ -1,8 +1,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from '@/axios/axiosInstance'
-import { getProducts } from '@/axios/routes'
-import type { Product } from '@/axios/types'
+import {
+  fetchProducts,
+  fetchProductsByName,
+  fetchCategories,
+  fetchProductsByCategoryId
+} from '@/api/index'
+import type { Product, Categories } from '@/axios/types'
 import Card from '@/components/ProductCard.vue'
 
 export default defineComponent({
@@ -12,35 +16,75 @@ export default defineComponent({
   data() {
     return {
       products: [] as Product[],
-      isLoading: true,
-      error: false
+      categories: [] as Categories[],
+      isLoading: false,
+      error: false,
+      searchQuery: '',
+      categoryOptions: [] as string[],
+      selectedCategory: null as number | null
     }
   },
-  mounted() {
-    this.fetchProduct()
+  async mounted() {
+    try {
+      await this.fetchCategories()
+      await this.fetchProducts()
+    } catch (error) {
+      console.error(error)
+      this.error = true
+    } finally {
+      this.isLoading = false
+    }
   },
   methods: {
-    fetchProduct() {
-      axios
-        .get(getProducts())
-        .then((response) => {
-          this.products = response.data
-          this.isLoading = false
-        })
-        .catch((error) => {
-          console.error(error)
-          this.isLoading = false
-          this.error = true
-        })
+    async fetchCategories() {
+      try {
+        const response = await fetchCategories()
+        this.categories = response
+        this.categoryOptions = this.categories.map((category) => category.name)
+      } catch (error) {
+        console.error(error)
+        this.error = true
+      }
     },
-    linkToProduct(id: Number) {
-      return `/product/${id}`
+    async fetchProducts() {
+      try {
+        if (this.searchQuery.trim() === '') {
+          const response = await fetchProducts()
+          this.products = response
+        } else {
+          const response = await fetchProductsByName(this.searchQuery)
+          this.products = response
+        }
+      } catch (error) {
+        console.error(error)
+        this.error = true
+      }
     },
-    ...mapActions(['addToCart'])
+    async searchProducts() {
+      this.error = false
+      try {
+        await this.fetchProducts()
+      } catch (error) {
+        console.error(error)
+        this.error = true
+      }
+    },
+    async searchProductsByCategory(categoryId: number) {
+      try {
+        const response = await fetchProductsByCategoryId(categoryId)
+        this.products = response
+      } catch (error) {
+        console.error(error)
+        this.error = true
+      }
+    }
   },
-  computed: {
-    formatNumber(): (num: number) => string {
-      return formatNumber
+  watch: {
+    selectedCategory(val: string) {
+      const selectedCategory = this.categories.find((category) => category.name === val)
+      if (selectedCategory) {
+        this.searchProductsByCategory(selectedCategory.id)
+      }
     }
   }
 })
@@ -57,8 +101,22 @@ export default defineComponent({
     <v-container fluid>
       <h1>Products</h1>
       <v-row>
+        <v-col cols="12">
+          <v-text-field
+            v-model="searchQuery"
+            variant="outlined"
+            label="Search"
+            @input="searchProducts"
+          />
+          <v-autocomplete
+            v-model="selectedCategory"
+            label="Autocomplete"
+            variant="outlined"
+            :items="categoryOptions"
+          ></v-autocomplete>
+        </v-col>
         <v-col v-for="product in products" :key="product.id" cols="12" sm="6" md="4" lg="3">
-          <app-card :product="product"/>
+          <app-card :product="product" />
         </v-col>
       </v-row>
     </v-container>
