@@ -11,7 +11,7 @@ export interface Users {
   phone: string
 }
 
-export interface Categories {
+export interface Category {
   id: number
   name: string
   base_name: string

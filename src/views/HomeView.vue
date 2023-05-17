@@ -6,7 +6,7 @@ import {
   fetchCategories,
   fetchProductsByCategoryId
 } from '@/api/index'
-import type { Product, Categories } from '@/axios/types'
+import type { Product, Category } from '@/axios/types'
 import Card from '@/components/ProductCard.vue'
 
 export default defineComponent({
@@ -16,7 +16,7 @@ export default defineComponent({
   data() {
     return {
       products: [] as Product[],
-      categories: [] as Categories[],
+      categories: [] as Category[],
       isLoading: false,
       error: false,
       searchQuery: '',

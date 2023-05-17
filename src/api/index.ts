@@ -1,6 +1,6 @@
 import axios from '@/axios/axiosInstance'
 import { getProducts, getProductsName, getCategories, getProductCategoryId } from '@/axios/routes'
-import type { Product, Categories } from '@/axios/types'
+import type { Product, Category } from '@/axios/types'
 
 export async function fetchProducts(): Promise<Product[]> {
   const response = await axios.get(getProducts())
@@ -12,7 +12,7 @@ export async function fetchProductsByName(searchQuery: string): Promise<Product[
   return response.data
 }
 
-export async function fetchCategories(): Promise<Categories[]> {
+export async function fetchCategories(): Promise<Category[]> {
   const response = await axios.get(getCategories())
   return response.data
 }
