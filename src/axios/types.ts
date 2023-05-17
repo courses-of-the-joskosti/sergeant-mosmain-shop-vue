@@ -14,6 +14,7 @@ export interface Users {
 export interface Categories {
   id: number
   name: string
+  base_name: string
   image_url: string
 }
 
