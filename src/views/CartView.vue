@@ -156,7 +156,14 @@ export default defineComponent({
                   <p>{{ product.name }}</p>
 
                   <v-card-subtitle class="pa-0">
-                    Страна: {{ product.manufacturer }} ID: {{ product.id }}
+                    Страна: {{ product.manufacturer }}
+                  </v-card-subtitle>
+
+                  <v-card-subtitle class="pa-0">
+                    Количество: {{ product.quantity }}
+                  </v-card-subtitle>
+                  <v-card-subtitle class="pa-0">
+                    ID: {{ product.id }}
                   </v-card-subtitle>
                 </v-card-text>
 

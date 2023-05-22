@@ -12,7 +12,7 @@ export default defineComponent({
     }
   },
   methods: {
-    linkToProduct(id: Number) {
+    linkToProduct(id: number) {
       return `/product/${id}`
     },
     ...mapActions(['addToCart'])
@@ -35,9 +35,7 @@ export default defineComponent({
     </v-card-item>
     <v-spacer></v-spacer>
     <v-card-actions class="d-flex align-center justify-end pa-4">
-      <p class="text-subtitle-1 font-weight-bold pr-2">
-        {{ formatNumber(product.price) }} ₽
-      </p>
+      <p class="text-subtitle-1 font-weight-bold pr-2">{{ formatNumber(product.price) }} ₽</p>
       <v-btn variant="flat" color="grey-darken-4" border @click="addToCart(product)">
         Add to cart
       </v-btn>
