@@ -21,7 +21,7 @@ export default defineComponent({
       error: false,
       searchQuery: '',
       categoryOptions: [] as string[],
-      selectedCategory: null as number | null
+      // selectedCategory: null as number | null
     }
   },
   async mounted() {
@@ -108,12 +108,12 @@ export default defineComponent({
             label="Search"
             @input="searchProducts"
           />
-          <v-autocomplete
+          <!-- <v-autocomplete
             v-model="selectedCategory"
             label="Autocomplete"
             variant="outlined"
             :items="categoryOptions"
-          ></v-autocomplete>
+          ></v-autocomplete> -->
         </v-col>
         <v-col v-for="product in products" :key="product.id" cols="12" sm="6" md="4" lg="3">
           <app-card :product="product" />
