@@ -149,11 +149,11 @@ export default defineComponent({
                   ></v-checkbox-btn>
                 </v-card-actions>
                 <v-avatar class="ma-3" size="150" rounded="0">
-                  <v-img :aspect-ratio="1 / 1" :src="product.image_url"></v-img>
+                  <v-img :aspect-ratio="1 / 1" :src="product.images[0]"></v-img>
                 </v-avatar>
 
                 <v-card-text class="flex-wrap pa-0">
-                  <p>{{ product.name }}</p>
+                  <p>{{ product.title }}</p>
 
                   <v-card-subtitle class="pa-0">
                     Страна: {{ product.manufacturer }}

@@ -59,7 +59,7 @@ export default defineComponent({
     <p>An error occurred while loading the product.</p>
   </template>
   <template v-else>
-    <h2>{{ product.name }}</h2>
+    <h2>{{ product.title }}</h2>
     <p>{{ product.description }}</p>
     <p>Price: {{ product.price }}</p>
   </template>

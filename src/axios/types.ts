@@ -4,11 +4,11 @@ export interface RootState {
 
 export interface Users {
   id: number
-  username: string
-  firstName: string
-  lastName: string
+  name: string
+  role: string
   email: string
-  phone: string
+  password: string
+  avatar: string
 }
 
 export interface Category {
@@ -21,11 +21,11 @@ export interface Category {
 export interface Product {
   id: number
   category_id: number
-  name: string
+  title: string
   description: string
   brand: string
   manufacturer: string
-  image_url: string
+  images: string
   price: number
   quantity: number
   total_price: number
